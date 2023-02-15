@@ -9,15 +9,18 @@ OBJS 		= $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(MINILIBX) $(OBJS) d
-	@$(CC) $(OFLAGS) $(FLAGS) $(OBJS) -o $(NAME) libs/minilibx/libmlx.a libs/libft/libft.a
+	@$(CC) $(OFLAGS) $(FLAGS) $(OBJS) -o $(NAME) libs/minilibx/libmlx.a libs/ft_lib/libft.a
 
 $(MINILIBX):
 	@make -C libs/minilibx
 d: 
-	@make -C libs/libft
+	@make -C libs/ft_lib
 	@echo "✅"
 
 re: fclean all
+
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS)
