@@ -2,17 +2,17 @@
 
 int main(int argc,char **argv)
 {
-    // void *mlx_ptr = mlx_init();
-
+    t_graph *data;
+    data = malloc(sizeof(t_graph));
     if(argc < 2)
-        exit(write(1, "Too few arguments", sizeof("Too few arguments")));
+        exit(write(1, "Too few arguments",18));
     else if(argc > 2)
-        exit(write(1, "Too many arguments", sizeof("Too many arguments")));
-
-    int fd = open("./maps/map1.ber",O_RDONLY);
-    // printf("%s",read_map(fd));
-
-    map_upload(fd);
-    // mlx_loop(mlx_ptr);
+        exit(write(1, "Too many arguments",19));
+    
+    
+    upload_img(data,argv[1]);
+    put_image(data,data->map,0,0);
+    
+    mlx_loop(data->mlx_ptr);
     return 0;
 }
