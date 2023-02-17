@@ -9,7 +9,7 @@ OBJS 		= $(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(MINILIBX) $(OBJS) d
-	@$(CC) $(OFLAGS) $(FLAGS) $(OBJS) -o $(NAME) libs/minilibx/libmlx.a libs/ft_lib/libft.a
+	@$(CC) $(OFLAGS) $(FLAGS) $(OBJS) -o $(NAME) libs/minilibx/libmlx.a libs/ft_lib/libft.a -g
 
 $(MINILIBX):
 	@make -C libs/minilibx

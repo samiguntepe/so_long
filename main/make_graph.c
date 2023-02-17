@@ -5,6 +5,7 @@ char **read_map(t_graph *graph,char *map_name)
     int i;
     int fd;
     char **map;
+    map = NULL;
     int vlen = vertical_len(map_name);
     map = malloc(sizeof(char *) * vlen + 1);
     i = 0;
@@ -23,12 +24,15 @@ int vertical_len(char *map_name)
 {
     int count;
     int fd = open(map_name,O_RDONLY);
+    char *ptr;
+    ptr = get_next_line(fd);
     count = 0;
-    while(get_next_line(fd) > 0)
+    while(ptr > 0)
     {
+        free(ptr);
+        ptr = get_next_line(fd);
         count++;
     }
-    close(fd);
     return count;
 }
 
@@ -49,7 +53,7 @@ void    put_image(t_graph *d,char **map,int i,int j)
     {
         h = i * PIXEL;
         j = 0;
-        while (map[i][j] != '\0')
+        while (map[i][j] != '\0' && map[i][j] != '\n')
         {
             w = j * PIXEL;
             if(map[i][j] == '1')
@@ -57,13 +61,17 @@ void    put_image(t_graph *d,char **map,int i,int j)
             else if(map[i][j] == '0')
                 mlx_put_image_to_window(d->mlx_ptr,d->win_ptr,d->bg_img,w,h);
             else if(map[i][j] == 'C')
+            {
+                mlx_put_image_to_window(d->mlx_ptr,d->win_ptr,d->bg_img,w,h);
                 mlx_put_image_to_window(d->mlx_ptr,d->win_ptr,d->c_img,w,h);
+            }
             else if(map[i][j] == 'P')
+            {
+                mlx_put_image_to_window(d->mlx_ptr,d->win_ptr,d->bg_img,w,h);
                 mlx_put_image_to_window(d->mlx_ptr,d->win_ptr,d->p_img,w,h);
+            }
             else if(map[i][j] == 'E')
                 mlx_put_image_to_window(d->mlx_ptr,d->win_ptr,d->e_img,w,h);
-            else
-                exit(write(1, "Map is wrong!",14));
             j++;
         }
         i++;
@@ -79,9 +87,9 @@ void upload_img(t_graph *x,char *map_name)
     h = vertical_len(map_name) * PIXEL;
     x->mlx_ptr = mlx_init();
     x->win_ptr = mlx_new_window(x->mlx_ptr, w, h, "Goblin!");
-    x->c_img = mlx_xpm_file_to_image(x->mlx_ptr, "../sprite/c.xpm", &w, &h);
-    x->bg_img = mlx_xpm_file_to_image(x->mlx_ptr, "../sprite/bg.xpm", &w, &h);
-    x->e_img = mlx_xpm_file_to_image(x->mlx_ptr, "../sprite/d_c.xpm", &w, &h);
-    x->p_img = mlx_xpm_file_to_image(x->mlx_ptr, "../sprite/p.xpm", &w, &h);
-    x->w_img = mlx_xpm_file_to_image(x->mlx_ptr, "../sprite/w.xpm", &w, &h);
+    x->c_img = mlx_xpm_file_to_image(x->mlx_ptr, "./sprite/c.xpm", &w, &h);
+    x->bg_img = mlx_xpm_file_to_image(x->mlx_ptr, "./sprite/bg.xpm", &w, &h);
+    x->e_img = mlx_xpm_file_to_image(x->mlx_ptr, "./sprite/d_c.xpm", &w, &h);
+    x->p_img = mlx_xpm_file_to_image(x->mlx_ptr, "./sprite/p.xpm", &w, &h);
+    x->w_img = mlx_xpm_file_to_image(x->mlx_ptr, "./sprite/w.xpm", &w, &h);
 }

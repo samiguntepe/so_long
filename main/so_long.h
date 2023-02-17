@@ -21,11 +21,16 @@ typedef struct s_graph
     int  h_len;
 } t_graph;
 
-
 char    **read_map(t_graph *graph,char *map_name);
+
 int     vertical_len(char *map_name);
 int     horizontal_len(char **map);
+int     close_win(t_graph *data);
+int     keyboard(int keycode, t_graph *data);
+
 void    put_image(t_graph *d,char **map,int i,int j);
 void    upload_img(t_graph *x,char *map_name);
+void    map_name_control(char *map_name);
+
 
 #endif
