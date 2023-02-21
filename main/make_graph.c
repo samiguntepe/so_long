@@ -44,7 +44,7 @@ int horizontal_len(char **map)
     return (i);
 }
 
-void    put_image(t_graph *d,int i,int j)
+void    put_image(t_data *d,int i,int j)
 {
     int w;
     int h;

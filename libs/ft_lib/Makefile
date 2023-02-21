@@ -6,14 +6,14 @@
 #    By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 07:47:27 by yciftci           #+#    #+#              #
-#    Updated: 2023/02/14 17:19:11 by sguntepe         ###   ########.fr        #
+#    Updated: 2023/02/21 15:59:11 by sguntepe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= libft.a
 
 CC		:= gcc
-CFLAGS	:= -Wall -Wextra -Werror
+CFLAGS	:= -Wall -Wextra -Werror -Wno-deprecated-declarations
 
 FILES	:= $(shell find . -type f ! -name "ft_lst*.c" -name "ft_*.c")
 OBJ		:= $(FILES:%.c=%.o)
