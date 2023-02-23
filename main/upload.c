@@ -21,6 +21,7 @@ void    upload_img(t_data *x)
 
 void    upload_map(t_data *data,char *map_name)
 {
+    data->plr = malloc(sizeof(t_plr));
     data->map_name = map_name;
     mapfree_control(data);
     data->map = read_map(map_name);

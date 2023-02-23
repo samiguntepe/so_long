@@ -20,11 +20,13 @@
 #define UP "./textures/p_up.xpm"
 
 
-typedef struct s_plyr
+typedef struct s_plr
 {
-  int x;
-  int y;
-} t_plyr;
+  int h;
+  int w;
+  char wl;
+  int count;
+} t_plr;
 
 
 typedef struct s_data
@@ -46,7 +48,7 @@ typedef struct s_data
     int h_len;
     int v_index;
     int h_index;
-    t_plyr *plyr;
+    t_plr *plr;
 } t_data;
 
 
@@ -55,7 +57,8 @@ char    **read_map(char *map_name);
 
 int     vertical_len(char *map_name);
 int     horizontal_len(char **map);
-int     close_win(t_data *data);
+int     close_win(void);
+int     keyboard(int keycode, t_data *data);
 
 void    put_image(t_data *d,int i,int j);
 void    upload_img(t_data *x);
@@ -71,8 +74,12 @@ void    count_component(t_data *data);
 void    rectangular(t_data *x,int i,int j);
 void    closed_map(t_data *x,int i,int j,int m);
 void    mapfree_control(t_data *x);
-int     keyboard(int keycode, t_data *data);
-// void    move_up(t_data *x);
-// void    player_locate(t_data *x);
+
+void    move_up(t_data *x);
+void    move_down(t_data *x);
+void    move_right(t_data *x);
+void    move_left(t_data *x);
+void    fix_exit(t_data *x,int i,int j);
+void    player_locate(t_data *x);
 
 #endif

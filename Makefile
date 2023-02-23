@@ -8,26 +8,32 @@ OBJS 		= $(SRCS:.c=.o)
 
 all : $(NAME)
 
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME) : $(MINILIBX) $(OBJS) d
+	
 	@$(CC) $(OFLAGS) $(FLAGS) $(OBJS) -o $(NAME) libs/minilibx/libmlx.a libs/ft_lib/libft.a -g
+	
 
 $(MINILIBX):
+	@echo "\n\033[0;35m⏳ LOADING...\033[0m\n"
 	@make -s -C libs/minilibx
 d: 
-	@make -C libs/ft_lib
+	@make -s -C libs/ft_lib
+	
 	@echo "✅"
 
 re: fclean all
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
-
 clean:
 	@rm -rf $(OBJS)
 	@rm -f libs/minilibx/*.o
+	@rm -f libs/ft_lib/*.o
 fclean: clean
 	@rm -rf $(NAME)
 	@rm -rf libs/minilibx/*.a
+	@rm -rf libs/ft_lib/*.a
 	@echo "🗑️"
 
 .PHONY: clean run fclean re all d 

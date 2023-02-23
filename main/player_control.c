@@ -1,21 +1,17 @@
 #include "so_long.h"
 
 int keyboard(int keycode, t_data *data)
-{
-    if(keycode == 13 || keycode == 126); // W / Yukarı
-        // move_up(data)
-    else if(keycode == 1 || keycode == 125); // S / Aşağı
-        // printf("S");
-    else if(keycode == 2 || keycode == 124); // D / Sağ 
-        // printf("D");
-    else if(keycode == 0 || keycode == 123); // A / Sol
-        // printf("W");
+{   
+  
+    if(keycode == 13 || keycode == 126)
+        move_up(data);
+    else if(keycode == 1 || keycode == 125)
+        move_down(data);
+    else if(keycode == 2 || keycode == 124 )
+        move_right(data);
+    else if(keycode == 0 || keycode == 123 )
+        move_left(data);
     else if(keycode == 53)
-        close_win(data);
+        close_win();
     return (0);
 }
-
-// void    move_up(t_data *x)
-// {
-    
-// }
