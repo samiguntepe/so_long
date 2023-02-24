@@ -1,8 +1,7 @@
 #include "so_long.h"
 
 int keyboard(int keycode, t_data *data)
-{   
-  
+{
     if(keycode == 13 || keycode == 126)
         move_up(data);
     else if(keycode == 1 || keycode == 125)
@@ -13,5 +12,23 @@ int keyboard(int keycode, t_data *data)
         move_left(data);
     else if(keycode == 53)
         close_win();
+    finish_game(data);
     return (0);
+}
+
+void    finish_game(t_data *x)
+{
+    if(x->map[x->plr->h][x->plr->w] == 'C')
+    {
+        x->plr->coin--;
+        x->map[x->plr->h][x->plr->w] = '0';
+    }
+    if(x->plr->coin == 0)
+    {
+        if(x->map[x->plr->h][x->plr->w] == 'E')
+        {
+            ft_printf("\n\033[32mCongratulations!\033[0m\n");
+            exit(1);
+        }
+    }
 }

@@ -1,10 +1,9 @@
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-# include "../libs/ft_lib/libft.h"
+# include "../libs/libft/libft.h"
 # include "../libs/minilibx/mlx.h"
 # include <fcntl.h>
-#include <stdio.h>
 
 #define PIXEL 64
 
@@ -26,6 +25,7 @@ typedef struct s_plr
   int w;
   char wl;
   int count;
+  int coin;
 } t_plr;
 
 
@@ -66,7 +66,7 @@ void    map_name_control(char *map_name);
 void    control_components(char **map);
 void    map_control(t_data *data);
 void    upload_map(t_data *data,char *map_name);
-void    c_count(char **map,int w,int h);
+void    c_count(t_data *x,int w,int h);
 void    e_count(char **map,int w,int h);
 void    p_count(char **map,int w,int h);
 
@@ -81,5 +81,6 @@ void    move_right(t_data *x);
 void    move_left(t_data *x);
 void    fix_exit(t_data *x,int i,int j);
 void    player_locate(t_data *x);
+void    finish_game(t_data *x);
 
 #endif

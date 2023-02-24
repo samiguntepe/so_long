@@ -12,16 +12,16 @@ void    map_name_control(char *map_name)
             {
                 if(map_name[--len] == '.');
                 else
-                exit(write(1, "Map is wrong! (Argument is wrong)",34));
+                exit (write ( 1, "\033[0;31mWrong Map!(Argument)\n", 29));
             }
             else
-                exit(write(1, "Map is wrong! (Argument is wrong)",34));       
+                exit(write(1, "\033[0;31mWrong Map!(Argument)\n",29));       
         }
         else
-            exit(write(1, "Map is wrong! (Argument is wrong)",34));
+            exit(write(1, "\033[0;31mWrong Map!(Argument)\n",29));
     }
     else
-        exit(write(1, "Map is wrong! (Argument is wrong)",34));
+        exit(write(1, "\033[0;31mWrong Map!(Argument)\n",29));
 }
 
 void    control_components(char **map)
@@ -38,7 +38,7 @@ void    control_components(char **map)
             if(map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'P' ||
             map[i][j] == 'C' || map[i][j] == 'E');
             else
-                exit(write(1, "Map is wrong! (Different components)",37));
+                exit(write(1, "\033[0;31mWrong Map!(Components)\n",31));
             j++;
         }
         i++;
@@ -62,13 +62,13 @@ void    rectangular(t_data *x,int i,int j)
             x->map[i][j] == 'C' || x->map[i][j] == 'E')
                 count++;
             else
-                exit(write(1, "Map is wrong! (Different components)",37));
+                exit(write(1, "\033[0;31mWrong Map!(Components)\n",31));
             j++;
         }
         i++;
     }
     if(count != area)
-        exit(write(1, "Map is wrong! (Map is not rectangular)",39));
+        exit(write(1, "\033[0;31mWrong Map!(Rectangular)\n",32));
 }
 
 void    mapfree_control(t_data *x)
@@ -80,7 +80,7 @@ void    mapfree_control(t_data *x)
     tmp = get_next_line(fd);
     if(tmp == NULL)
     {
-        exit(write(1, "Map is wrong! (Map is free)",28));
+        exit(write(1, "\033[0;31mWrong Map!(Free Map)\n",29));
     }
     free(tmp);
 }
@@ -92,5 +92,4 @@ void    map_control(t_data *data)
     count_component(data);
     rectangular(data,0,0);
     closed_map(data,0,0,0);
-    // player_locate(data);
 }

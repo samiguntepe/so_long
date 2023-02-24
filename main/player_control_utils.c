@@ -11,11 +11,14 @@ void    move_up(t_data *x)
     (x->plr->h) -= 1;
     h = x->plr->h * PIXEL;
     w = x->plr->w * PIXEL;
-
+    
     mlx_put_image_to_window(x->mlx,x->win,x->bg_img,w,bg_h);
     mlx_put_image_to_window(x->mlx,x->win,x->up_img,w,h);
     fix_exit(x,0,0);
     mlx_put_image_to_window(x->mlx,x->win,x->up_img,w,h);
+    ft_printf("\033[1;40m\rMove:\033[0m");
+    ft_printf("\033[1;40m%d\033[0m",x->plr->count++);
+    
     
 }
 
@@ -35,6 +38,8 @@ void    move_down(t_data *x)
     mlx_put_image_to_window(x->mlx,x->win,x->p_img,w,h);
     fix_exit(x,0,0);
     mlx_put_image_to_window(x->mlx,x->win,x->p_img,w,h);
+    ft_printf("\033[1;40m\rMove:\033[0m");
+    ft_printf("\033[1;40m%d\033[0m",x->plr->count++);
 }
 
 void    move_right(t_data *x)
@@ -53,6 +58,8 @@ void    move_right(t_data *x)
     mlx_put_image_to_window(x->mlx,x->win,x->right_img,w,h);
     fix_exit(x,0,0);
     mlx_put_image_to_window(x->mlx,x->win,x->right_img,w,h);
+    ft_printf("\033[1;40m\rMove:\033[0m");
+    ft_printf("\033[1;40m%d\033[0m",x->plr->count++);
 }
 
 void    move_left(t_data *x)
@@ -71,6 +78,8 @@ void    move_left(t_data *x)
     mlx_put_image_to_window(x->mlx,x->win,x->left_img,w,h);
     fix_exit(x,0,0);
     mlx_put_image_to_window(x->mlx,x->win,x->left_img,w,h);
+    ft_printf("\033[1;40m\rMove:\033[0m");
+    ft_printf("\033[1;40m%d\033[0m",x->plr->count++);
 }
 
 void    fix_exit(t_data *x,int i,int j)

@@ -2,6 +2,7 @@
 
 void    player_locate(t_data *x)
 {
+    ft_printf("\033[1;40m\rMove:\033[0m");
     int i;
     int j;
 

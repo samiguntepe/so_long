@@ -44,39 +44,39 @@ int horizontal_len(char **map)
     return (i);
 }
 
-void    put_image(t_data *d,int i,int j)
+void    put_image(t_data *x,int i,int j)
 {
     int w;
     int h;
-    while (d->map[i])
+    while (x->map[i])
     {
         h = i * PIXEL;
         j = 0;
-        while (d->map[i][j] != '\0' && d->map[i][j] != '\n')
+        while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
         {
             w = j * PIXEL;
-            if(d->map[i][j] == '1')
-                mlx_put_image_to_window(d->mlx,d->win,d->w_img,w,h);
-            else if(d->map[i][j] == '0')
-                mlx_put_image_to_window(d->mlx,d->win,d->bg_img,w,h);
-            else if(d->map[i][j] == 'C')
+            if(x->map[i][j] == '1')
+                mlx_put_image_to_window(x->mlx,x->win,x->w_img,w,h);
+            else if(x->map[i][j] == '0')
+                mlx_put_image_to_window(x->mlx,x->win,x->bg_img,w,h);
+            else if(x->map[i][j] == 'C')
             {
-                mlx_put_image_to_window(d->mlx,d->win,d->bg_img,w,h);
+                mlx_put_image_to_window(x->mlx,x->win,x->bg_img,w,h);
                 w = (j * PIXEL) + 16;
                 h = (i * PIXEL) + 16;
-                mlx_put_image_to_window(d->mlx,d->win,d->c_img,w,h);
+                mlx_put_image_to_window(x->mlx,x->win,x->c_img,w,h);
                 w -= 16;
                 h -= 16;
             }
-            else if(d->map[i][j] == 'P')
+            else if(x->map[i][j] == 'P')
             {
-                mlx_put_image_to_window(d->mlx,d->win,d->bg_img,w,h);
-                mlx_put_image_to_window(d->mlx,d->win,d->p_img,w,h);
+                mlx_put_image_to_window(x->mlx,x->win,x->bg_img,w,h);
+                mlx_put_image_to_window(x->mlx,x->win,x->p_img,w,h);
             }
-            else if(d->map[i][j] == 'E')
+            else if(x->map[i][j] == 'E')
             {
-                mlx_put_image_to_window(d->mlx,d->win,d->ebg_img,w,h);
-                mlx_put_image_to_window(d->mlx,d->win,d->e_img,w,h);
+                mlx_put_image_to_window(x->mlx,x->win,x->ebg_img,w,h);
+                mlx_put_image_to_window(x->mlx,x->win,x->e_img,w,h);
             }  
             j++;
         }
