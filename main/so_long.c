@@ -22,7 +22,6 @@ int main(int argc,char **argv)
 
 int close_win(void)
 {
-    // plr free yap;
     write(1,"\n\033[0;35mGame over! The spider was hungry!\033[0m\n", 46);
     exit(1);
 }
