@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/25 23:59:28 by sguntepe          #+#    #+#             */
+/*   Updated: 2023/02/26 00:45:38 by sguntepe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 #define SO_LONG_H
 
-# include "../libs/libft/libft.h"
+# include "../libs/ft_printf/libft/libft.h"
+# include "../libs/ft_printf/ft_printf.h"
 # include "../libs/minilibx/mlx.h"
 # include <fcntl.h>
 

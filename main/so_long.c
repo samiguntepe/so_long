@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/25 23:59:23 by sguntepe          #+#    #+#             */
+/*   Updated: 2023/02/25 23:59:24 by sguntepe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 int main(int argc,char **argv)
@@ -22,6 +34,7 @@ int main(int argc,char **argv)
 
 int close_win(void)
 {
+    // plr free yap;
     write(1,"\n\033[0;35mGame over! The spider was hungry!\033[0m\n", 46);
     exit(1);
 }
