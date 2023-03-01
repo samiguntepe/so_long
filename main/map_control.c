@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:01 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/02/25 23:59:02 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:57:53 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ void    map_name_control(char *map_name)
             {
                 if(map_name[--len] == '.');
                 else
-                exit (write ( 1, "\033[0;31mWrong Map!(Argument)\n", 29));
+                    error_messages(1);
             }
             else
-                exit(write(1, "\033[0;31mWrong Map!(Argument)\n",29));       
+                error_messages(1);    
         }
         else
-            exit(write(1, "\033[0;31mWrong Map!(Argument)\n",29));
+            error_messages(1);
     }
     else
-        exit(write(1, "\033[0;31mWrong Map!(Argument)\n",29));
+        error_messages(1);
 }
 
 void    control_components(char **map)
@@ -50,7 +50,7 @@ void    control_components(char **map)
             if(map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'P' ||
             map[i][j] == 'C' || map[i][j] == 'E');
             else
-                exit(write(1, "\033[0;31mWrong Map!(Components)\n",31));
+                error_messages(2);
             j++;
         }
         i++;
@@ -74,13 +74,13 @@ void    rectangular(t_data *x,int i,int j)
             x->map[i][j] == 'C' || x->map[i][j] == 'E')
                 count++;
             else
-                exit(write(1, "\033[0;31mWrong Map!(Components)\n",31));
+                error_messages(2);
             j++;
         }
         i++;
     }
     if(count != area)
-        exit(write(1, "\033[0;31mWrong Map!(Rectangular)\n",32));
+        exit(ft_printf("\033[0;31mError\nWrong Map!(Rectangular)\n"));
 }
 
 void    mapfree_control(t_data *x)
@@ -88,11 +88,10 @@ void    mapfree_control(t_data *x)
     int fd;
     char *tmp;
     fd = open(x->map_name,O_RDONLY);
-    
     tmp = get_next_line(fd);
     if(tmp == NULL)
     {
-        exit(write(1, "\033[0;31mWrong Map!(Free Map)\n",29));
+        exit(ft_printf("\033[0;31mError\nWrong Map!(Free Map)\n"));
     }
     free(tmp);
 }
@@ -104,4 +103,7 @@ void    map_control(t_data *data)
     count_component(data);
     rectangular(data,0,0);
     closed_map(data,0,0,0);
+    // count_free_space(data);
+    // path_find(data->uMap->h,data->uMap->w,'P','1',data);
+    ft_printf("\033[1;40m\rMove:\033[0m");
 }

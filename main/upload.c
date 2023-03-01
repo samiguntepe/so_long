@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/02/25 23:59:33 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:16:17 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ void    upload_img(t_data *x)
 void    upload_map(t_data *data,char *map_name)
 {
     data->plr = malloc(sizeof(t_plr));
+    data->uMap = malloc(sizeof(t_uMap));
     data->plr->count = 1;
+    data->uMap->f_space = 0;
     data->map_name = map_name;
     mapfree_control(data);
     data->map = read_map(map_name);
@@ -42,4 +44,7 @@ void    upload_map(t_data *data,char *map_name)
     data->v_len = vertical_len(data->map_name);
     data->v_index = data->v_len - 1;
     data->h_index = data->h_len - 1;
+    player_locate(data);
+    data->uMap->map = read_map(map_name);
+    path_locate(data);
 }

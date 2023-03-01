@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:58:50 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/02/27 00:10:00 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/02/28 20:15:38 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,25 +29,6 @@ char **read_map(char *map_name)
     map[i] = NULL;
     close(fd);
     return (map);
-
-    //   int fd;
-    // char read_one[2];
-    // int read_bytes;
-    // char *ret;
-    // fd = open(map_name,O_RDONLY);
-    // read_bytes = 1;
-    // while (read_bytes != 0)
-    // {
-    //     read_bytes = read(fd,read_one,1);
-    //     if(read_bytes == -1)
-    //     {
-    //         write(1,"Map is Free!!",14);
-    //         exit(1);
-    //     }
-    //     read_one[1] = '\0';
-    //     ret = ft_strjoin(ret,read_one);
-    // }
-    // return (ret); 
 }
 
 int vertical_len(char *map_name)
@@ -63,6 +44,7 @@ int vertical_len(char *map_name)
         ptr = get_next_line(fd);
         count++;
     }
+    close(fd);
     return count;
 }
 

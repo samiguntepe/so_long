@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:58:58 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/02/25 23:58:59 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:00:01 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void    c_count(t_data *x,int w,int h)
         h++;
     }
     if(x->plr->coin <= 0)
-        exit(write(1, "\033[0;31mWrong Map!(Collectible Count)\n",38));
+        error_messages(4);
 }
 
 void    e_count(char **map,int w,int h)
@@ -54,7 +54,7 @@ void    e_count(char **map,int w,int h)
         h++;
     }
     if(count != 1)
-        exit(write(1, "\033[0;31mWrong Map! (Exit Count)\n",32));
+        exit(ft_printf("\033[0;31mError\nWrong Map! (Exit Count)\n"));
 }
 
 void    p_count(char **map,int w,int h)
@@ -74,7 +74,7 @@ void    p_count(char **map,int w,int h)
         h++;
     }
     if(count != 1)
-        exit(write(1, "\033[0;31mWrong Map!(Player Count)\n",33));
+        exit(ft_printf("\033[0;31mError\nWrong Map!(Player Count)\n"));
 }
 
 void    closed_map(t_data *x,int i,int j,int m)
@@ -85,18 +85,18 @@ void    closed_map(t_data *x,int i,int j,int m)
         while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
         {
             if(x->map[0][j] != '1')
-                exit(write(1, "\033[0;31mWrong Map!(Open Map)\n",29));
+                error_messages(3);
             else if(x->map[i][0] != '1')
-                exit(write(1, "\033[0;31mWrong Map!(Open Map)\n",29));
+                error_messages(3);
             j++;
         }
         m = 0;
         while(x->map[i][m] != '\0' && x->map[i][m] != '\n')
         {
             if(x->map[(i)][x->h_index] != '1')
-                exit(write(1, "\033[0;31mWrong Map!(Open Map)\n",29));
+                error_messages(3);
             if(x->map[(x->v_index)][m] != '1')
-                exit(write(1, "\033[0;31mWrong Map!(Open Map)\n",29));
+                error_messages(3);
             m++;
         }
         i++;

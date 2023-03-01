@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:28 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/02/26 00:45:38 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:49:24 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libs/ft_printf/libft/libft.h"
 # include "../libs/ft_printf/ft_printf.h"
 # include "../libs/minilibx/mlx.h"
+#include "../libs/get_next_line/get_next_line.h"
 # include <fcntl.h>
 
 #define PIXEL 64
@@ -32,11 +33,18 @@
 #define UP "./textures/p_up.xpm"
 
 
+typedef struct s_uMap
+{
+  int f_space;
+  int h;
+  int w;
+  char **map;
+}t_uMap;
+
 typedef struct s_plr
 {
   int h;
   int w;
-  char wl;
   int count;
   int coin;
 } t_plr;
@@ -62,6 +70,7 @@ typedef struct s_data
     int v_index;
     int h_index;
     t_plr *plr;
+    t_uMap *uMap;
 } t_data;
 
 
@@ -72,6 +81,7 @@ int     vertical_len(char *map_name);
 int     horizontal_len(char **map);
 int     close_win(void);
 int     keyboard(int keycode, t_data *data);
+void    count_free_space(t_data *x);
 
 void    put_image(t_data *d,int i,int j);
 void    upload_img(t_data *x);
@@ -82,6 +92,7 @@ void    upload_map(t_data *data,char *map_name);
 void    c_count(t_data *x,int w,int h);
 void    e_count(char **map,int w,int h);
 void    p_count(char **map,int w,int h);
+void    error_messages(int i);
 
 void    count_component(t_data *data);
 void    rectangular(t_data *x,int i,int j);
@@ -95,5 +106,14 @@ void    move_left(t_data *x);
 void    fix_exit(t_data *x,int i,int j);
 void    player_locate(t_data *x);
 void    finish_game(t_data *x);
+void    path_locate(t_data *x);
+
+void    path_find(int h,int w,char old,char new,t_data *x);
+void    up_path(t_data *x);
+void    down_path(t_data *x);
+void    right_path(t_data *x);
+void    left_path(t_data *x);
+void    path_find_move(t_data *x);
+
 
 #endif
