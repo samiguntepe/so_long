@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/04 08:10:12 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 23:11:37 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int main(int argc,char **argv)
     put_image(&data,0,0);
     mlx_hook(data.win, 2, 1L << 0, keyboard,&data);
     mlx_hook(data.win, 17, 0, close_win,0);
-    
     mlx_loop(data.mlx);
 }
 
