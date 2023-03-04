@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:28 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/01 15:49:24 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 09:43:07 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@
 #define UP "./textures/p_up.xpm"
 
 
-typedef struct s_uMap
+typedef struct s_iMap
 {
   int f_space;
   int h;
   int w;
-  char **map;
-}t_uMap;
+  int **map;
+}t_iMap;
 
 typedef struct s_plr
 {
@@ -70,7 +70,7 @@ typedef struct s_data
     int v_index;
     int h_index;
     t_plr *plr;
-    t_uMap *uMap;
+    t_iMap *iMap;
 } t_data;
 
 
@@ -81,7 +81,7 @@ int     vertical_len(char *map_name);
 int     horizontal_len(char **map);
 int     close_win(void);
 int     keyboard(int keycode, t_data *data);
-void    count_free_space(t_data *x);
+// void    count_free_space(t_data *x);
 
 void    put_image(t_data *d,int i,int j);
 void    upload_img(t_data *x);
@@ -106,14 +106,9 @@ void    move_left(t_data *x);
 void    fix_exit(t_data *x,int i,int j);
 void    player_locate(t_data *x);
 void    finish_game(t_data *x);
-void    path_locate(t_data *x);
+int    **int_map(char *map_name,t_data *x,int i,int j);
 
-void    path_find(int h,int w,char old,char new,t_data *x);
-void    up_path(t_data *x);
-void    down_path(t_data *x);
-void    right_path(t_data *x);
-void    left_path(t_data *x);
-void    path_find_move(t_data *x);
+// void    path_find(int h,int w,t_data *x);
 
 
 #endif

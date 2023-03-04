@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:01 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/01 13:57:53 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 08:12:15 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ void    map_control(t_data *data)
     rectangular(data,0,0);
     closed_map(data,0,0,0);
     // count_free_space(data);
-    // path_find(data->uMap->h,data->uMap->w,'P','1',data);
+    // path_find((data->uMap->h),(data->uMap->w),data);
     ft_printf("\033[1;40m\rMove:\033[0m");
 }

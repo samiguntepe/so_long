@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:13 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/01 09:25:00 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 08:08:46 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,4 @@ void    player_locate(t_data *x)
         }
         i++;
     }
-}
-
-void    path_locate(t_data *x)
-{
-    int i;
-    int j;
-
-    i = 0;
-     while(x->uMap->map[i])
-    {
-        j = 0;
-        while(x->uMap->map[i][j] != '\n' && x->uMap->map[i][j] != '\0')
-        {
-            if(x->uMap->map[i][j] == 'P')
-            {
-                x->uMap->h = i;
-                x->uMap->w = j;
-                
-            }
-            j++;
-        }
-        i++;
-    }   
 }

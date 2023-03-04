@@ -6,36 +6,77 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:51:07 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/01 16:51:08 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 09:50:45 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void count_free_space(t_data *x)
-{
-    int i;
-    int j;
+// void count_free_space(t_data *x)
+// {
+//     int i;
+//     int j;
 
-    i = 0;
-    j = 0;
-    while (x->map[i])
+//     i = 0;
+//     j = 0;
+//     while (x->map[i])
+//     {
+//         j = 0;
+//         while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
+//         {
+//             if(x->map[i][j] != '1')
+//                 x->iMap->f_space++;
+//             j++;
+//         }
+//         i++;
+//     }
+// }
+
+int    **int_map(char *map_name,t_data *x,int i,int j)
+{
+    int vlen;
+    int hlen;
+    int **map;
+    
+    hlen = horizontal_len(x->map);
+    vlen = vertical_len(x->map_name);
+    map = (int **)malloc(sizeof(int *) * vlen + 1);
+    while(i < vlen)
     {
         j = 0;
-        while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
+        map[i] = malloc(sizeof(int) * hlen + 1);
+        while (j < hlen)
         {
-            if(x->map[i][j] != '1')
-                x->uMap->f_space++;
+            if(i == x->plr->h && j == x->plr->w)
+                map[i][j] = 1;
+            else
+                map[i][j] = 0;
             j++;
         }
-        i++;
+        map[i][j] = '\0';
+        i++; 
     }
+    map[i] = NULL;
+    return map;
 }
 
-void    path_find_move(t_data *x)
-{
-    up_path(x);
-    down_path(x);
-    right_path(x);
-    left_path(x);
-}
+
+
+// char **read_map(char *map_name)
+// {
+//     int i;
+//     int fd;
+//     char **map = NULL;
+//     int vlen = vertical_len(map_name);
+//     map = malloc(sizeof(char *) * vlen + 1);
+//     i = 0;
+//     fd = open(map_name,O_RDONLY);
+//     while (i < vlen)
+//     {
+//         map[i] = get_next_line(fd);
+//         i++;
+//     }
+//     map[i] = NULL;
+//     close(fd);
+//     return (map);
+// }
