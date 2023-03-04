@@ -22,7 +22,6 @@ int main(int argc,char **argv)
         exit(ft_printf("\033[0;31mError\nToo many arguments!\n"));
     
     upload_map(&data,argv[1]);
-    exit(1);
     map_control(&data);
     upload_img(&data);
     put_image(&data,0,0);

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:28 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/04 09:43:07 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 21:24:09 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int     vertical_len(char *map_name);
 int     horizontal_len(char **map);
 int     close_win(void);
 int     keyboard(int keycode, t_data *data);
-// void    count_free_space(t_data *x);
+void    count_free_space(t_data *x);
 
 void    put_image(t_data *d,int i,int j);
 void    upload_img(t_data *x);
@@ -107,8 +107,7 @@ void    fix_exit(t_data *x,int i,int j);
 void    player_locate(t_data *x);
 void    finish_game(t_data *x);
 int    **int_map(char *map_name,t_data *x,int i,int j);
-
-// void    path_find(int h,int w,t_data *x);
+void    path_find(int h,int w,t_data *x,int **imap);
 
 
 #endif

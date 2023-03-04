@@ -6,31 +6,31 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:51:07 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/04 09:50:45 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 20:20:55 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// void count_free_space(t_data *x)
-// {
-//     int i;
-//     int j;
+void count_free_space(t_data *x)
+{
+    int i;
+    int j;
 
-//     i = 0;
-//     j = 0;
-//     while (x->map[i])
-//     {
-//         j = 0;
-//         while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
-//         {
-//             if(x->map[i][j] != '1')
-//                 x->iMap->f_space++;
-//             j++;
-//         }
-//         i++;
-//     }
-// }
+    i = 0;
+    j = 0;
+    while (x->map[i])
+    {
+        j = 0;
+        while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
+        {
+            if(x->map[i][j] != '1')
+                x->iMap->f_space++;
+            j++;
+        }
+        i++;
+    }
+}
 
 int    **int_map(char *map_name,t_data *x,int i,int j)
 {
@@ -59,24 +59,3 @@ int    **int_map(char *map_name,t_data *x,int i,int j)
     map[i] = NULL;
     return map;
 }
-
-
-
-// char **read_map(char *map_name)
-// {
-//     int i;
-//     int fd;
-//     char **map = NULL;
-//     int vlen = vertical_len(map_name);
-//     map = malloc(sizeof(char *) * vlen + 1);
-//     i = 0;
-//     fd = open(map_name,O_RDONLY);
-//     while (i < vlen)
-//     {
-//         map[i] = get_next_line(fd);
-//         i++;
-//     }
-//     map[i] = NULL;
-//     close(fd);
-//     return (map);
-// }

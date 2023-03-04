@@ -6,7 +6,7 @@
 #    By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 23:59:38 by sguntepe          #+#    #+#              #
-#    Updated: 2023/03/01 16:50:21 by sguntepe         ###   ########.fr        #
+#    Updated: 2023/03/04 22:59:02 by sguntepe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ fclean: clean
 	@rm -rf libs/ft_printf/libft/*.a
 	@rm -rf libs/ft_printf/*.a
 	@rm -rf libs/get_next_line/*.a
+	@rm -rf so_long
 	@echo "🗑️"
 
 .PHONY: clean run fclean re all d 

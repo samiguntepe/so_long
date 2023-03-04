@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/04 09:51:30 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/04 21:09:43 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,4 @@ void    upload_map(t_data *data,char *map_name)
     data->h_index = data->h_len - 1;
     player_locate(data);
     data->iMap->map = int_map(data->map_name,data,0,0);
-    exit(1);
 }
