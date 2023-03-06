@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:01 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/04 22:52:26 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:03:01 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,5 @@ void    map_control(t_data *data)
         exit(1);
     }
         
-    ft_printf("\033[1;40m\rMove:\033[0m");
+    ft_printf("\x1B[40m\x1B[32m\rMove:0\x1B[0m");
 }

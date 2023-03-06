@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:32 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/04 21:09:43 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:00:53 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void    upload_map(t_data *data,char *map_name)
     data->plr = malloc(sizeof(t_plr));
     data->iMap = malloc(sizeof(t_iMap));
     data->plr->count = 1;
+    data->plr->wcount = 0;
     data->iMap->f_space = 0;
     data->map_name = map_name;
     mapfree_control(data);
