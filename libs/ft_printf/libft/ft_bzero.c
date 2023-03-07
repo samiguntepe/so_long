@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 12:08:53 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/01 13:22:06 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:54:23 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset(s, 0, n);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
 // int	main(void)
 // {

@@ -6,7 +6,7 @@
 #    By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 23:59:38 by sguntepe          #+#    #+#              #
-#    Updated: 2023/03/06 17:34:09 by sguntepe         ###   ########.fr        #
+#    Updated: 2023/03/07 16:53:17 by sguntepe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,9 +48,6 @@ d:
 
 re: fclean all
 
-norm:
-	norminette bonus
-
 clean:
 	@rm -rf $(OBJS)
 	@rm -rf $(BOBJS)
@@ -69,4 +66,8 @@ fclean: clean
 	@rm -rf libs/get_next_line/*.a
 	@echo "🗑️"
 
-.PHONY: clean run fclean re all d bonus
+norm:
+	norminette bonus
+	norminette main
+
+.PHONY: clean run fclean re all d bonus norm

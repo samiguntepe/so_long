@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:31:45 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/02/28 19:13:11 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:56:28 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-#include "../ft_printf/libft/libft.h"
+# include "../ft_printf/libft/libft.h"
 
 char	*ft_gnl_strchr(char *s, int c);
 char	*ft_gnl_strjoin(char *left_str, char *buff);

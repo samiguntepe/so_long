@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 09:17:53 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/01/10 18:14:33 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:55:52 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ char	*ft_strdup(const char *s1)
 
 // }
 
-// "s1" parametresinden gelen dizinin bir kopyasını malloc ile açılan belleğe kopyalar.
+// "s1" parametresinden gelen dizinin bir kopyasını
+//  malloc ile açılan belleğe kopyalar.
