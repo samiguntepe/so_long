@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:01 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 15:56:51 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:18:46 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void	map_control(t_data *data)
 	closed_map(data, 0, 0, 0);
 	count_free_space(data);
 	path_find((data->plr->h), (data->plr->w), data, data->imap->map);
+	free_imap(data);
 	if (data->imap->f_space == 1)
 		;
 	else

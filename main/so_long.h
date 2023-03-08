@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:28 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 15:34:25 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/07 23:26:28 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,10 @@ void	fix_exit(t_data *x, int i, int j);
 void	player_locate(t_data *x);
 void	finish_game(t_data *x);
 void	path_find(int h, int w, t_data *x, int **imap);
+
+// Free Memory
+
+void	free_imap(t_data *data);
+void	free_map(t_data *data);
 
 #endif
