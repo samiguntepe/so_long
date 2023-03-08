@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 12:58:37 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/08 20:27:53 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:30:22 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,4 @@ void	free_mapfree(t_data *data)
 {
 	free(data->plr);
 	free(data->imap);
-	mlx_destroy_window(data->mlx, data->win);
 }

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:23 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/08 21:15:02 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:33:49 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	close_win(t_data *data)
 	exit(1);
 }
 
-int finish_close_win(t_data *data)
+int	finish_close_win(t_data *data)
 {
 	free_exit(data);
 	exit(1);
@@ -53,7 +53,7 @@ void	error_messages(int i, t_data *data)
 	if (i == 1)
 	{
 		free_wrong(data);
-		exit(ft_printf("\033[0;31mError\nWrong Map!(Argument)\n"));
+		exit(ft_printf("\033[0;31mError\nWrong Map!\n"));
 	}
 	else if (i == 2)
 	{

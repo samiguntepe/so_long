@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:01 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/08 20:33:47 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:34:38 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	mapfree_control(t_data *x)
 	if (tmp == NULL)
 	{
 		free_mapfree(x);
-		exit (ft_printf ("\033[0;31mError\nWrong Map!(Free Map)\n"));
+		exit (ft_printf ("\033[0;31mError\nWrong Map!\n"));
 	}
 	free(tmp);
 }
