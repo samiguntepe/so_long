@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 16:39:03 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 16:59:57 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:08:02 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	move_count_img(t_data *x)
 {
+	char	*str;
+
+	str = ft_itoa(x->plr->wcount);
 	black_rectangular(x);
 	mlx_string_put(x->mlx, x->win, 4, 15, 52224, "MOVE:");
-	mlx_string_put(x->mlx, x->win, 40, 15, 52224, ft_itoa(x->plr->wcount));
+	mlx_string_put(x->mlx, x->win, 40, 15, 52224, str);
+	free(str);
 }
 
 void	black_rectangular(t_data *xx)

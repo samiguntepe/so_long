@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:28 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 16:59:39 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:15:42 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ typedef struct s_data
 	void	*mlx;
 	void	*win;
 	char	**map;
-	char	*p_img;
-	char	*e_img;
-	char	*c_img;
-	char	*w_img;
-	char	*bg_img;
-	char	*ebg_img;
-	char	*left_img;
-	char	*right_img;
-	char	*up_img;
+	void	*p_img;
+	void	*e_img;
+	void	*c_img;
+	void	*w_img;
+	void	*bg_img;
+	void	*ebg_img;
+	void	*left_img;
+	void	*right_img;
+	void	*up_img;
 	char	*map_name;
 	int		v_len;
 	int		h_len;
@@ -76,7 +76,7 @@ char	**read_map(char *map_name);
 
 int		vertical_len(char *map_name);
 int		horizontal_len(char **map);
-int		close_win(void);
+int		close_win(t_data *data);
 int		keyboard(int keycode, t_data *data);
 int		**int_map(char *map_name, t_data *x, int i, int j);
 
@@ -85,14 +85,14 @@ void	put_image(t_data *x, int i, int j);
 void	put_image_next(t_data *x, int i, int j);
 void	put_image_next_last(t_data *x, int i, int j);
 void	upload_img(t_data *x);
-void	map_name_control(char *map_name);
-void	control_components(char **map);
+void	map_name_control(char *map_name, t_data *data);
+void	control_components(char **map, t_data *data);
 void	map_control(t_data *data);
 void	upload_map(t_data *data, char *map_name);
 void	c_count(t_data *x, int w, int h);
-void	e_count(char **map, int w, int h);
-void	p_count(char **map, int w, int h);
-void	error_messages(int i);
+void	e_count(char **map, int w, int h, t_data *data);
+void	p_count(char **map, int w, int h, t_data *data);
+void	error_messages(int i, t_data *data);
 void	count_component(t_data *data);
 void	rectangular(t_data *x, int i, int j);
 void	closed_map(t_data *x, int i, int j, int m);
@@ -105,9 +105,17 @@ void	fix_exit(t_data *x, int i, int j);
 void	player_locate(t_data *x);
 void	finish_game(t_data *x);
 void	path_find(int h, int w, t_data *x, int **imap);
+int		press_close_key(t_data *data);
+
+// Free Memory
+void	free_imap(t_data *data);
+void	free_map(t_data *data);
+void	free_exit(t_data *data);
+void	free_wrong(t_data *data);
+void	free_mapfree(t_data *data);
+int		finish_close_win(t_data *data);
 
 //Bonus
-
 void	move_count_img(t_data *x);
 void	black_rectangular(t_data *xx);
 

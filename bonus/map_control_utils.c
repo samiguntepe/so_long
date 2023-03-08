@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:58:58 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 15:42:43 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:18:04 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	count_component(t_data	*data)
 {
 	c_count(data, 0, 0);
-	e_count(data->map, 0, 0);
-	p_count(data->map, 0, 0);
+	e_count(data->map, 0, 0, data);
+	p_count(data->map, 0, 0, data);
 }
 
 void	c_count(t_data *x, int w, int h)
@@ -34,10 +34,10 @@ void	c_count(t_data *x, int w, int h)
 		h++;
 	}
 	if (x->plr->coin <= 0)
-		error_messages (4);
+		error_messages (4, x);
 }
 
-void	e_count(char **map, int w, int h)
+void	e_count(char **map, int w, int h, t_data *data)
 {
 	int	count;
 
@@ -54,10 +54,13 @@ void	e_count(char **map, int w, int h)
 		h++;
 	}
 	if (count != 1)
+	{
+		free_wrong(data);
 		exit (ft_printf ("\033[0;31mError\nWrong Map! (Exit Count)\n"));
+	}
 }
 
-void	p_count(char **map, int w, int h)
+void	p_count(char **map, int w, int h, t_data *data)
 {
 	int	count;
 
@@ -74,7 +77,10 @@ void	p_count(char **map, int w, int h)
 		h++;
 	}
 	if (count != 1)
+	{
+		free_wrong(data);
 		exit (ft_printf ("\033[0;31mError\nWrong Map!(Player Count)\n"));
+	}
 }
 
 void	closed_map(t_data *x, int i, int j, int m)
@@ -85,18 +91,18 @@ void	closed_map(t_data *x, int i, int j, int m)
 		while (x->map[i][j] != '\0' && x->map[i][j] != '\n')
 		{
 			if (x->map[0][j] != '1')
-				error_messages(3);
+				error_messages(3, x);
 			else if (x->map[i][0] != '1')
-				error_messages(3);
+				error_messages(3, x);
 			j++;
 		}
 		m = 0;
 		while (x->map[i][m] != '\0' && x->map[i][m] != '\n')
 		{
 			if (x->map[(i)][x->h_index] != '1')
-				error_messages(3);
+				error_messages(3, x);
 			if (x->map[(x->v_index)][m] != '1')
-				error_messages(3);
+				error_messages(3, x);
 			m++;
 		}
 		i++;

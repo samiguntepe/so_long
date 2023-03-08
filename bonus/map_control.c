@@ -6,13 +6,13 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:01 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 23:17:01 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 20:33:47 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_name_control(char *map_name)
+void	map_name_control(char *map_name, t_data *data)
 {
 	int	len;
 
@@ -26,19 +26,19 @@ void	map_name_control(char *map_name)
 				if (map_name[--len] == '.')
 					;
 				else
-					error_messages(1);
+					error_messages(1, data);
 			}
 			else
-				error_messages(1);
+				error_messages(1, data);
 		}
 		else
-			error_messages(1);
+			error_messages(1, data);
 	}
 	else
-		error_messages(1);
+		error_messages(1, data);
 }
 
-void	control_components(char **map)
+void	control_components(char **map, t_data *data)
 {
 	int	i;
 	int	j;
@@ -52,7 +52,7 @@ void	control_components(char **map)
 			if (map[i][j] == '0' || map[i][j] == '1' || map[i][j] == 'P' ||
 				map[i][j] == 'C' || map[i][j] == 'E');
 			else
-				error_messages(2);
+				error_messages(2, data);
 			j++;
 		}
 		i++;
@@ -75,13 +75,16 @@ void	rectangular(t_data *x, int i, int j)
 			x->map[i][j] == 'P' || x->map[i][j] == 'C' || x->map[i][j] == 'E')
 				count++;
 			else
-				error_messages(2);
+				error_messages(2, x);
 			j++;
 		}
 		i++;
 	}
 	if (count != area)
+	{
+		free_wrong(x);
 		exit (ft_printf ("\033[0;31mError\nWrong Map!(Rectangular)\n"));
+	}
 }
 
 void	mapfree_control(t_data *x)
@@ -93,6 +96,7 @@ void	mapfree_control(t_data *x)
 	tmp = get_next_line(fd);
 	if (tmp == NULL)
 	{
+		free_mapfree(x);
 		exit (ft_printf ("\033[0;31mError\nWrong Map!(Free Map)\n"));
 	}
 	free(tmp);
@@ -100,8 +104,8 @@ void	mapfree_control(t_data *x)
 
 void	map_control(t_data *data)
 {
-	map_name_control(data->map_name);
-	control_components(data->map);
+	map_name_control(data->map_name, data);
+	control_components(data->map, data);
 	count_component(data);
 	rectangular(data, 0, 0);
 	closed_map(data, 0, 0, 0);
@@ -111,6 +115,7 @@ void	map_control(t_data *data)
 		;
 	else
 	{
+		free_wrong(data);
 		ft_printf("\033[0;31mError\nImpossible to finish the game!\n");
 		exit(1);
 	}

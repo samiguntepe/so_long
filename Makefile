@@ -6,7 +6,7 @@
 #    By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/25 23:59:38 by sguntepe          #+#    #+#              #
-#    Updated: 2023/03/07 16:53:17 by sguntepe         ###   ########.fr        #
+#    Updated: 2023/03/08 15:03:59 by sguntepe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ fclean: clean
 	@echo "🗑️"
 
 norm:
-	norminette bonus
-	norminette main
+	@norminette bonus
+	@norminette main
 
 .PHONY: clean run fclean re all d bonus norm

@@ -6,7 +6,7 @@
 /*   By: sguntepe <@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 23:59:10 by sguntepe          #+#    #+#             */
-/*   Updated: 2023/03/07 16:28:47 by sguntepe         ###   ########.fr       */
+/*   Updated: 2023/03/08 21:16:11 by sguntepe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	keyboard(int keycode, t_data *data)
 	else if (keycode == 0 || keycode == 123)
 		move_left(data);
 	else if (keycode == 53)
-		close_win();
+		close_win(data);
 	finish_game(data);
 	return (0);
 }
@@ -39,8 +39,8 @@ void	finish_game(t_data *x)
 	{
 		if (x->map[x->plr->h][x->plr->w] == 'E')
 		{
-			ft_printf("\n\033[32mCongratulations!\033[0m\n");
-			exit(1);
+			ft_printf("\n\033[32mCongratulations!\033[0m");
+			finish_close_win(x);
 		}
 	}
 }
