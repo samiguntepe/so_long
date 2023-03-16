@@ -24,7 +24,7 @@ BOBJS		= $(BSRCS:.c=.o)
 all : $(NAME)
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME) : $(MINILIBX) $(OBJS) d
 	
